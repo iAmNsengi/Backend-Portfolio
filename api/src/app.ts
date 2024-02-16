@@ -7,7 +7,14 @@ import dotenv from "dotenv";
 import blogRoutes from "./api/routes/blogs";
 import messageRoutes from "./api/routes/messages";
 
+<<<<<<< Updated upstream:api/src/app.ts
 dotenv.config();
+=======
+const blogRoutes = require("./api/routes/blogs");
+const messageRoutes = require("./api/routes/messages");
+const userRoutes = require("./api/routes/user");
+const projectRoutes = require("./api/routes/projects");
+>>>>>>> Stashed changes:app.js
 
 const app: Application = express();
 
@@ -39,6 +46,8 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 app.use("/blogs", blogRoutes);
 app.use("/messages", messageRoutes);
+app.use("/user", userRoutes);
+app.use("/projects", projectRoutes);
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   const error: any = new Error("Not Found");
